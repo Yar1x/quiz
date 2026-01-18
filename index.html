@@ -1,52 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="cs">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Practice Quiz</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; max-width: 800px; margin: 24px auto; padding: 0 12px; }
+    #options button { display: block; width: 100%; text-align: left; margin: 8px 0; padding: 12px; }
+    #meta { opacity: 0.8; margin-bottom: 12px; }
+  </style>
 </head>
 <body>
 
-<h2 id="q"></h2>
-<div id="options"></div>
-<button onclick="next()">Next</button>
+  <div id="meta"></div>
+  <h2 id="q">Načítám otázky…</h2>
+  <div id="options"></div>
 
-<script src="quiz.js"></script>
+  <button id="nextBtn" disabled>Další</button>
+
 <script>
-let shuffled = [...questions].sort(() => Math.random() - 0.5);
-let quiz = shuffled.slice(0, 9);
-let index = 0;
-let score = 0;
+  const QUESTION_COUNT = 10;
 
-function showQuestion() {
-  const q = quiz[index];
-  document.getElementById("q").textContent = `${index + 1}. ${q.question}`;
+  let quiz = [];
+  let index = 0;
+  let score = 0;
+  let locked = false; // prevents double-click scoring
 
-  const optionsDiv = document.getElementById("options");
-  optionsDiv.innerHTML = "";
-
-  q.options.forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.textContent = opt;
-    btn.onclick = () => {
-      if (i === q.answer) score++;
-      next();
-    };
-    optionsDiv.appendChild(btn);
-    optionsDiv.appendChild(document.createElement("br"));
-  });
-}
-
-function next() {
-  index++;
-  if (index < quiz.length) {
-    showQuestion();
-  } else {
-    document.body.innerHTML = `<h1>Score: ${score}/9</h1>
-    <button onclick="location.reload()">Try again</button>`;
+  function shuffle(arr) {
+    // Fisher-Yates
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
-}
 
-showQuestion();
+  function normalizeQuestion(q) {
+    // Convert your JSON structure to something easy to render
+    // q.otazka, q.moznosti {a,b,c}, q.oznacena_odpoved ("a"/"b"/"c")
+    const letters = Object.keys(q.moznosti); // ["a","b","c"] (or more if present)
+    return {
+      id: q.id,
+      text: q.otazka,
+      options: letters.map(l => ({ letter: l, text: q.moznosti[l] })),
+      correctLetter: q.oznacena_odpoved
+    };
+  }
+
+  function showQuestion() {
+    locked = false;
+    document.getElementById("nextBtn").disabled = true;
+
+    const q = quiz[index];
+    document.getElementById("meta").textContent = `Otázka ${index + 1} / ${quiz.length}`;
+    document.getElementById("q").textContent = q.text;
+
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+
+    q.options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.textContent = `${opt.letter.toUpperCase()}) ${opt.text}`;
+      btn.onclick = () => choose(opt.letter);
+      optionsDiv.appendChild(btn);
+    });
+  }
+
+  function choose(letter) {
+    if (locked) return;
+    locked = true;
+
+    const q = quiz[index];
+    if (letter === q.correctLetter) score++;
+
+    // Optional: show which was correct
+    const buttons = [...document.querySelectorAll("#options button")];
+    buttons.forEach(b => {
+      const startsWith = b.textContent.trim().slice(0, 2).toLowerCase(); // "a)"
+      const btnLetter = startsWith[0];
+      if (btnLetter === q.correctLetter) b.style.border = "2px solid #2e7d32";
+      if (btnLetter === letter && letter !== q.correctLetter) b.style.border = "2px solid #c62828";
+      b.disabled = true;
+    });
+
+    document.getElementById("nextBtn").disabled = false;
+  }
+
+  function next() {
+    index++;
+    if (index < quiz.length) {
+      showQuestion();
+    } else {
+      document.body.innerHTML = `
+        <h1>Skóre: ${score} / ${quiz.length}</h1>
+        <button onclick="location.reload()">Zkusit znovu</button>
+      `;
+    }
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", next);
+
+  async function init() {
+    try {
+      const res = await fetch("quiz.json", { cache: "no-store" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+
+      const raw = data["test_autoškola"];
+      if (!Array.isArray(raw) || raw.length === 0) {
+        throw new Error("V quiz.json není pole 'test_autoškola' nebo je prázdné.");
+      }
+
+      const normalized = raw.map(normalizeQuestion);
+      quiz = shuffle(normalized).slice(0, Math.min(QUESTION_COUNT, normalized.length));
+
+      index = 0;
+      score = 0;
+      showQuestion();
+    } catch (err) {
+      document.getElementById("q").textContent = "Chyba při načítání quiz.json";
+      document.getElementById("options").innerHTML = `<pre>${String(err)}</pre>
+      <p><b>Tip:</b> Otevři to přes lokální server (ne file://), aby fetch fungoval.</p>`;
+    }
+  }
+
+  init();
 </script>
 
 </body>
