@@ -37,14 +37,38 @@
   }
 
   function normalizeQuestion(q) {
-    const letters = Object.keys(q.moznosti);
+  // Step 1: convert object to array
+  let options = Object.entries(q.moznosti).map(([letter, text]) => ({
+    originalLetter: letter,
+    text
+  }));
+
+  // Step 2: shuffle options
+  options = shuffle(options);
+
+  // Step 3: reassign letters (a, b, c, ...)
+  const letters = "abcdefghijklmnopqrstuvwxyz";
+  let correctLetter = null;
+
+  options = options.map((opt, index) => {
+    const newLetter = letters[index];
+    if (opt.originalLetter === q.oznacena_odpoved) {
+      correctLetter = newLetter;
+    }
     return {
-      id: q.id,
-      text: q.otazka,
-      options: letters.map(l => ({ letter: l, text: q.moznosti[l] })),
-      correctLetter: q.oznacena_odpoved
+      letter: newLetter,
+      text: opt.text
     };
-  }
+  });
+
+  return {
+    id: q.id,
+    text: q.otazka,
+    options,
+    correctLetter
+  };
+}
+
 
   function showQuestion() {
     locked = false;
@@ -133,4 +157,5 @@
 
 </body>
 </html>
+
 
