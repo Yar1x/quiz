@@ -7,12 +7,14 @@
   <style>
     body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 12px; }
     #options button { display:block; width:100%; text-align:left; margin:10px 0; padding:12px; }
-    #meta { opacity: .8; margin-bottom: 12px; }
+    #meta { opacity: .8; margin-bottom: 6px; }
+    #qid { font-size: 0.9rem; color: #555; margin-bottom: 6px; }
   </style>
 </head>
 <body>
 
   <div id="meta"></div>
+  <div id="qid"></div>
   <h2 id="q">Načítám…</h2>
   <div id="options"></div>
   <button id="nextBtn" disabled>Další</button>
@@ -35,7 +37,7 @@
   }
 
   function normalizeQuestion(q) {
-    const letters = Object.keys(q.moznosti); // e.g. ["a","b","c"]
+    const letters = Object.keys(q.moznosti);
     return {
       id: q.id,
       text: q.otazka,
@@ -49,7 +51,13 @@
     document.getElementById("nextBtn").disabled = true;
 
     const q = quiz[index];
-    document.getElementById("meta").textContent = `Otázka ${index + 1} / ${quiz.length}`;
+
+    document.getElementById("meta").textContent =
+      `Otázka ${index + 1} / ${quiz.length}`;
+
+    document.getElementById("qid").textContent =
+      `ID otázky: ${q.id}`;
+
     document.getElementById("q").textContent = q.text;
 
     const optionsDiv = document.getElementById("options");
@@ -70,10 +78,9 @@
     const q = quiz[index];
     if (letter === q.correctLetter) score++;
 
-    // highlight correct / chosen
     const buttons = [...document.querySelectorAll("#options button")];
     buttons.forEach(b => {
-      const btnLetter = b.textContent.trim()[0].toLowerCase(); // "a" from "A)"
+      const btnLetter = b.textContent[0].toLowerCase();
       if (btnLetter === q.correctLetter) b.style.border = "2px solid #2e7d32";
       if (btnLetter === letter && letter !== q.correctLetter) b.style.border = "2px solid #c62828";
       b.disabled = true;
@@ -98,27 +105,25 @@
 
   async function init() {
     try {
-      // cache-bust helps on GitHub Pages
       const res = await fetch("quiz.json?v=" + Date.now());
       if (!res.ok) throw new Error(`Nejde načíst quiz.json (HTTP ${res.status})`);
 
       const data = await res.json();
-
       const raw = data.test_autoškola;
+
       if (!Array.isArray(raw) || raw.length === 0) {
-        throw new Error("quiz.json: chybí pole test_autoškola (nebo je prázdné).");
+        throw new Error("quiz.json: chybí pole test_autoškola.");
       }
 
-      quiz = shuffle(raw.map(normalizeQuestion)).slice(0, Math.min(QUESTION_COUNT, raw.length));
+      quiz = shuffle(raw.map(normalizeQuestion))
+              .slice(0, Math.min(QUESTION_COUNT, raw.length));
+
       index = 0;
       score = 0;
       showQuestion();
     } catch (err) {
       document.getElementById("q").textContent = "Chyba při načítání otázek";
-      document.getElementById("options").innerHTML = `
-        <pre>${String(err)}</pre>
-        <p>Otevři DevTools → Console/Network a zkontroluj, jestli se quiz.json načítá.</p>
-      `;
+      document.getElementById("options").innerHTML = `<pre>${String(err)}</pre>`;
       console.error(err);
     }
   }
