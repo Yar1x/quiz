@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Practice Quiz</title>
   <style>
-    body { font-family: system-ui, Arial, sans-serif; max-width: 800px; margin: 24px auto; padding: 0 12px; }
-    #options button { display: block; width: 100%; text-align: left; margin: 8px 0; padding: 12px; }
-    #meta { opacity: 0.8; margin-bottom: 12px; }
+    body { font-family: system-ui, Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 12px; }
+    #options button { display:block; width:100%; text-align:left; margin:10px 0; padding:12px; }
+    #meta { opacity: .8; margin-bottom: 12px; }
   </style>
 </head>
 <body>
 
   <div id="meta"></div>
-  <h2 id="q">Načítám otázky…</h2>
+  <h2 id="q">Načítám…</h2>
   <div id="options"></div>
-
   <button id="nextBtn" disabled>Další</button>
 
 <script>
@@ -24,10 +23,9 @@
   let quiz = [];
   let index = 0;
   let score = 0;
-  let locked = false; // prevents double-click scoring
+  let locked = false;
 
   function shuffle(arr) {
-    // Fisher-Yates
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -37,9 +35,7 @@
   }
 
   function normalizeQuestion(q) {
-    // Convert your JSON structure to something easy to render
-    // q.otazka, q.moznosti {a,b,c}, q.oznacena_odpoved ("a"/"b"/"c")
-    const letters = Object.keys(q.moznosti); // ["a","b","c"] (or more if present)
+    const letters = Object.keys(q.moznosti); // e.g. ["a","b","c"]
     return {
       id: q.id,
       text: q.otazka,
@@ -74,11 +70,10 @@
     const q = quiz[index];
     if (letter === q.correctLetter) score++;
 
-    // Optional: show which was correct
+    // highlight correct / chosen
     const buttons = [...document.querySelectorAll("#options button")];
     buttons.forEach(b => {
-      const startsWith = b.textContent.trim().slice(0, 2).toLowerCase(); // "a)"
-      const btnLetter = startsWith[0];
+      const btnLetter = b.textContent.trim()[0].toLowerCase(); // "a" from "A)"
       if (btnLetter === q.correctLetter) b.style.border = "2px solid #2e7d32";
       if (btnLetter === letter && letter !== q.correctLetter) b.style.border = "2px solid #c62828";
       b.disabled = true;
@@ -103,25 +98,28 @@
 
   async function init() {
     try {
-      const res = await fetch("quiz.json", { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      // cache-bust helps on GitHub Pages
+      const res = await fetch("quiz.json?v=" + Date.now());
+      if (!res.ok) throw new Error(`Nejde načíst quiz.json (HTTP ${res.status})`);
+
       const data = await res.json();
 
-      const raw = data["test_autoškola"];
+      const raw = data.test_autoškola;
       if (!Array.isArray(raw) || raw.length === 0) {
-        throw new Error("V quiz.json není pole 'test_autoškola' nebo je prázdné.");
+        throw new Error("quiz.json: chybí pole test_autoškola (nebo je prázdné).");
       }
 
-      const normalized = raw.map(normalizeQuestion);
-      quiz = shuffle(normalized).slice(0, Math.min(QUESTION_COUNT, normalized.length));
-
+      quiz = shuffle(raw.map(normalizeQuestion)).slice(0, Math.min(QUESTION_COUNT, raw.length));
       index = 0;
       score = 0;
       showQuestion();
     } catch (err) {
-      document.getElementById("q").textContent = "Chyba při načítání quiz.json";
-      document.getElementById("options").innerHTML = `<pre>${String(err)}</pre>
-      <p><b>Tip:</b> Otevři to přes lokální server (ne file://), aby fetch fungoval.</p>`;
+      document.getElementById("q").textContent = "Chyba při načítání otázek";
+      document.getElementById("options").innerHTML = `
+        <pre>${String(err)}</pre>
+        <p>Otevři DevTools → Console/Network a zkontroluj, jestli se quiz.json načítá.</p>
+      `;
+      console.error(err);
     }
   }
 
