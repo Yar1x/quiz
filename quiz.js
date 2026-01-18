@@ -1,13 +1,2304 @@
-const questions = [
-  {
-    question: "What is 2 + 2?",
-    options: ["3", "4", "5", "6"],
-    answer: 1
-  },
-  {
-    question: "Capital of France?",
-    options: ["Berlin", "Madrid", "Paris", "Rome"],
-    answer: 2
-  }
-  // ... up to 230 questions
-];
+{
+  "test_autoškola": [
+    {
+      "id": 1,
+      "otazka": "Dát přednost v jízdě znamená povinnost řidiče",
+      "moznosti": {
+        "a": "počínat si tak, aby jinému účastníkovi provozu na pozemních komunikacích nevzniklo žádné nebezpečí",
+        "b": "počínat si tak, aby jinému účastníkovi provozu na pozemních komunikacích nijak nepřekážel",
+        "c": "nezahájit jízdu nebo jízdní úkon nebo v nich nepokračovat, jestliže by řidič, který má přednost v jízdě, musel náhle změnit směr nebo rychlost jízdy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 2,
+      "otazka": "Dát přednost v jízdě znamená povinnost řidiče",
+      "moznosti": {
+        "a": "počínat si tak, aby řidič, který má přednost v jízdě, věděl, že nebude v jízdě omezen",
+        "b": "počínat si tak, aby řidič, který má přednost v jízdě, nemusel ani mírně zpomalit",
+        "c": "nezahájit jízdu nebo jízdní úkon nebo v nich nepokračovat, jestliže by řidič, který má přednost v jízdě, musel náhle změnit směr nebo rychlost jízdy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 3,
+      "otazka": "Nesmět omezit znamená povinnost počínat si tak, aby",
+      "moznosti": {
+        "a": "jiný účastník provozu na pozemních komunikacích nemusel náhle změnit směr nebo rychlost jízdy",
+        "b": "jinému účastníku provozu na pozemních komunikacích nevzniklo žádné nebezpečí",
+        "c": "jinému účastníku provozu na pozemních komunikacích nebylo nijak překáženo"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 4,
+      "otazka": "Nesmět omezit znamená povinnost počínat si tak, aby",
+      "moznosti": {
+        "a": "jiný řidič mohl bezpečně zastavit vozidlo",
+        "b": "druhý řidič nemusel náhle snížit rychlost jízdy nebo zastavit vozidlo",
+        "c": "jinému účastníku provozu na pozemních komunikacích nebylo nijak překáženo"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 5,
+      "otazka": "Nesmět ohrozit znamená povinnost počínat si tak, aby",
+      "moznosti": {
+        "a": "jinému účastníku provozu na pozemních komunikacích nevzniklo žádné nebezpečí",
+        "b": "druhý řidič nemusel zastavit vozidlo",
+        "c": "žádný řidič nemusel ani mírně snížit rychlost jízdy"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 6,
+      "otazka": "Nesmět ohrozit znamená povinnost počínat si tak, aby",
+      "moznosti": {
+        "a": "jinému účastníku provozu na pozemních komunikacích nijak nepřekážel",
+        "b": "jinému účastníku provozu na pozemních komunikacích nevzniklo žádné nebezpečí",
+        "c": "jinému účastníku provozu nepoškodil vozidlo"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 7,
+      "otazka": "Zastavit znamená",
+      "moznosti": {
+        "a": "uvést vozidlo do klidu na dobu nezbytně nutnou k neprodlenému nastoupení nebo vystoupení přepravovaných osob anebo k neprodlenému naložení nebo složení nákladu",
+        "b": "povinnost řidiče nepokračovat v jízdě a zajistit vozidlo proti pohybu",
+        "c": "přerušit jízdu z důvodu nezávislého na vůli řidiče, například při poruše vozidla, na křižovatce"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 8,
+      "otazka": "Pokud řidič provádí zastavení, rozumí se tím uvedení vozidla do klidu na dobu nezbytně nutnou k",
+      "moznosti": {
+        "a": "nastoupení nebo vystoupení přepravovaných osob anebo naložení nebo složení nákladu pokud řidič neopustí vozidlo",
+        "b": "nastoupení nebo vystoupení přepravovaných osob anebo naložení nebo složení nákladu v trvání maximálně 3 minut",
+        "c": "neprodlenému nastoupení nebo vystoupení přepravovaných osob anebo k neprodlenému naložení nebo složení nákladu"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 9,
+      "otazka": "Stát znamená",
+      "moznosti": {
+        "a": "uvést vozidlo do klidu nad dobu dovolenou pro zastavení",
+        "b": "přerušit jízdu z důvodu nezávislého na vůli řidiče, například při závadě na vozidle",
+        "c": "uvést vozidlo do klidu na dobu nezbytně nutnou k neprodlenému naložení nebo složení nákladu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 10,
+      "otazka": "Připojovací pruh je",
+      "moznosti": {
+        "a": "jízdní pruh vyhrazený jen pro vozidla hromadné dopravy osob",
+        "b": "přídatný jízdní pruh určený pro zařazování vozidel do jízdního proudu průběžného pruhu",
+        "c": "jízdní pruh určený pro pomalá vozidla, která nemohou v daném úseku dosáhnout okamžité rychlosti nejméně 60 km/h"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 11,
+      "otazka": "Silnice pro motorová vozidla je",
+      "moznosti": {
+        "a": "každá pozemní komunikace o nejméně dvou jízdních pruzích v jednom směru jízdy, pokud vede mimo obec",
+        "b": "každá silnice I. třídy",
+        "c": "pozemní komunikace označená dopravní značkou „Silnice pro motorová vozidla“"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 12,
+      "otazka": "Svítí-li na křižovatce světlo signálu se žlutým světlem \"Pozor!\" přerušovaně",
+      "moznosti": {
+        "a": "je to signál znamenající pro řidiče volný průjezd křižovatkou",
+        "b": "jedná se o křižovatku, kde přednost v jízdě není upravena dopravními značkami",
+        "c": "nejde o křižovatku s provozem řízeným světelnými signály"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 13,
+      "otazka": "Signál dvou vedle sebe umístěných střídavě přerušovaných červených světel znamená pro řidiče",
+      "moznosti": {
+        "a": "povinnost zastavit vozidlo před světelným signalizačním zařízením",
+        "b": "povinnost snížit rychlost jízdy v úseku výjezdu vozidel hasičských záchranných sborů na maximálně 30 km/h",
+        "c": "možnost pokračovat v jízdě se zvýšenou opatrností"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 14,
+      "otazka": "Před železničním přejezdem",
+      "moznosti": {
+        "a": "nesmí řidič řadit rychlostní stupně",
+        "b": "si musí řidič počínat zvlášť opatrně, zejména se přesvědčit, zda může železniční přejezd bezpečně přejet",
+        "c": "musí řidič vždy zastavit, aby se přesvědčil, zda může železniční přejezd bezpečně přejet"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 15,
+      "otazka": "Při řízení provozu na křižovatce policistou je povinen řidič při pokynu „STŮJ!“ zastavit vozidlo",
+      "moznosti": {
+        "a": "na takovém místě, kde bude mít dobrý výhled do křižovatky",
+        "b": "před hranicí křižovatky",
+        "c": "před dopravní značkou označující danou křižovatku"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 16,
+      "otazka": "Řidič nesmí vjíždět na železniční přejezd",
+      "moznosti": {
+        "a": "bez rozsvícených potkávacích světel",
+        "b": "je-li již vidět nebo slyšet přijíždějící vlak nebo jiné drážní vozidlo nebo je-li slyšet jeho houkání nebo pískání; toto neplatí, svítí-li přerušované bílé světlo signálu přejezdového zabezpečovacího zařízení",
+        "c": "vyšší rychlostí než 30 km/h"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 17,
+      "otazka": "Má-li policista pravou paži předpaženou a levou upaženou, znamená to „STŮJ!“ pro řidiče přijíždějící",
+      "moznosti": {
+        "a": "směrem k zádům a pravému boku policisty",
+        "b": "k levému boku policisty",
+        "c": "směrem k čelu policisty"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 18,
+      "otazka": "Řidič nesmí při přejíždění železničního přejezdu",
+      "moznosti": {
+        "a": "předjíždět",
+        "b": "vjíždět na přejezd bez rozsvícených dálkových světel",
+        "c": "nikdy překročit rychlost jízdy 30 km/h"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 19,
+      "otazka": "Před železničním přejezdem si musí řidič",
+      "moznosti": {
+        "a": "počínat zvlášť opatrně, zejména se přesvědčit, zda může železniční přejezd bezpečně přejet",
+        "b": "rozsvítit dálková světla pro lepší viditelnost vlastního vozidla",
+        "c": "přeřadit na nižší převodový stupeň a snížit rychlost jízdy na 30 km/h"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 20,
+      "otazka": "Signál „Přerušované žluté světlo“ užitý společně s dopravní značkou nebo dopravním zařízením",
+      "moznosti": {
+        "a": "zdůrazňuje význam dopravní značky nebo dopravního zařízení",
+        "b": "informuje řidiče o dočasné neplatnosti dopravní značky nebo dopravního zařízení",
+        "c": "znamená pro řidiče povinnost snížit rychlost nebo zastavit vozidlo před světelným signalizačním zařízením"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 21,
+      "otazka": "Dopravní značka „Přechod pro chodce“",
+      "moznosti": {
+        "a": "upozorňuje na přechod pro chodce, který by řidič jinak neočekával a který není viditelný z dostatečné vzdálenosti",
+        "b": "v obci je vždy umístěna před přechodem pro chodce",
+        "c": "upozorňuje na přechod pro chodce pouze v případě, kdy není vyznačen vodorovnou dopravní značkou"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 22,
+      "otazka": "Přenosné svislé dopravní značky jsou nadřazeny",
+      "moznosti": {
+        "a": "všem dopravním značkám",
+        "b": "vodorovným dopravním značkám",
+        "c": "světelným signálům"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 23,
+      "otazka": "Směrový sloupek červený levý i pravý vyznačují",
+      "moznosti": {
+        "a": "vyústění účelové komunikace na jinou pozemní komunikaci",
+        "b": "upozorňují na místa se zvýšeným nebezpečím námrazy",
+        "c": "stanovují povinnost řidiče dát přednost v jízdě řidičům přijíždějícím zprava"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 24,
+      "otazka": "Dopravní značka „Sněhové řetězy“",
+      "moznosti": {
+        "a": "přikazuje řidiči motorového vozidla o třech a více kolech pokračovat v jízdě až po nasazení sněhových (protiskluzových) řetězů na nejméně dvě hnací kola. Povinnost se nevztahuje na vozidla, která jsou vybavena pneumatikami s protiskluzovými hroty",
+        "b": "přikazuje řidiči motorového vozidla pokračovat v jízdě až po nasazení sněhových (protiskluzových) řetězů na všechna kola",
+        "c": "doporučuje řidiči motorového vozidla pokračovat v jízdě až po nasazení sněhových (protiskluzových) řetězů"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 25,
+      "otazka": "Dojde-li při jízdě v tunelu k poruše vozidla nebo k dopravní nehodě, je řidič povinen neprodleně",
+      "moznosti": {
+        "a": "vypnout motor, a je-li k vytápění vozidla použito nezávislého topení, vypnout i toto topení",
+        "b": "opustit tunel",
+        "c": "vypnout osvětlení vozidla"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 26,
+      "otazka": "Dojde-li při jízdě v tunelu k poruše vozidla nebo k dopravní nehodě, je řidič povinen",
+      "moznosti": {
+        "a": "okamžitě zahájit opravu vozidla",
+        "b": "neprodleně odejít na místo určené k soustředění osob",
+        "c": "neprodleně učinit vhodná opatření, aby nebyla ohrožena bezpečnost provozu na pozemních komunikacích v tunelu; vyžadují-li to okolnosti, je oprávněn zastavovat jiná vozidla"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 27,
+      "otazka": "Vzduchový vítr nebo náraz vzniklý při předjíždění",
+      "moznosti": {
+        "a": "nemá vliv na předjížděná vozidla",
+        "b": "je nebezpečný pro stabilitu předjížděných vozidel, zejména pak vozidel jednostopých",
+        "c": "je nebezpečný pouze pro jednostopá vozidla"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 28,
+      "otazka": "Zvýšené riziko ztráty přilnavosti pneumatik a následného smyku za deště hrozí",
+      "moznosti": {
+        "a": "na silnicích nižší třídy",
+        "b": "na silnici s betonovým povrchem",
+        "c": "v úseku s vyjetými kolejemi"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 29,
+      "otazka": "Při předjíždění cyklisty",
+      "moznosti": {
+        "a": "řidič dává znamení o změně směru jízdy dle svého uvážení",
+        "b": "pokud řidič nemění směr jízdy, znamení o změně směru jízdy nedává",
+        "c": "řidič musí dát znamení o změně směru jízdy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 30,
+      "otazka": "Řidič je povinen snížit rychlost jízdy nebo zastavit vozidlo před přechodem pro chodce",
+      "moznosti": {
+        "a": "sníží-li rychlost jízdy nebo zastaví-li vozidlo před přechodem pro chodce i řidiči ostatních vozidel jedoucích stejným směrem",
+        "b": "snižují-li rychlost jízdy nebo zastavují-li před přechodem řidiči vozidel jedoucí v protisměru",
+        "c": "pokud zastavilo v protisměru před přechodem pro chodce jiné vozidlo"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 31,
+      "otazka": "Účastníci dopravní nehody jsou povinni",
+      "moznosti": {
+        "a": "neprodleně odstranit vozidla poškozená při nehodě na místo ležící mimo silnici",
+        "b": "neprodleně zastavit ostatní vozidla až do doby, než se na místo nehody dostaví příslušník policie",
+        "c": "učinit vhodná opatření, aby nebyla ohrožena bezpečnost provozu na pozemních komunikacích v místě dopravní nehody; vyžadují-li to okolnosti, jsou oprávněni zastavovat jiná vozidla"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 32,
+      "otazka": "Přejíždět do jiného jízdního pruhu smí řidič jen tehdy, pokud dává znamení o změně směru jízdy",
+      "moznosti": {
+        "a": "a dá-li přednost v jízdě řidiči jedoucímu v jízdním pruhu, do kterého přejíždí",
+        "b": "a neohrozí-li a neomezí-li řidiče jedoucího v jízdním pruhu, do kterého přejíždí",
+        "c": "a není-li v jeho dohledné vzdálenosti v tomto jízdním pruhu jiné vozidlo"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 33,
+      "otazka": "Řidič smí vjíždět na dálnici a na silnici pro motorová vozidla a z nich vyjíždět",
+      "moznosti": {
+        "a": "kdekoliv, nesmí však ohrozit ani omezit řidiče po nich jedoucí",
+        "b": "maximální rychlostí 90 km/h",
+        "c": "jen na místech k tomu určených"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 34,
+      "otazka": "Do pěší zóny je povolen vjezd jen vozidlům",
+      "moznosti": {
+        "a": "vyznačeným ve spodní části dopravní značky „Pěší zóna“ a vozidlům osob, které mají za značkou bydliště nebo sídlo",
+        "b": "vyznačeným ve spodní části dopravní značky „Pěší zóna“ a vozidlům ozbrojených sil a sborů",
+        "c": "vyznačeným ve spodní části dopravní značky „Pěší zóna“"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 35,
+      "otazka": "Zadní světla do mlhy musí řidič",
+      "moznosti": {
+        "a": "užít jen pokud rychlost jízdy nepřekročí 50 km/h",
+        "b": "užít jen společně s předními světly do mlhy",
+        "c": "za mlhy, sněžení nebo hustého deště užít vždy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 36,
+      "otazka": "Svítí-li zvláštní výstražné světlo modré nebo modré a červené barvy na stojícím vozidle, musí řidiči ostatních vozidel",
+      "moznosti": {
+        "a": "snížit rychlost jízdy na maximálně 50 km/h",
+        "b": "vždy zastavit vozidlo",
+        "c": "podle okolností snížit rychlost jízdy a popřípadě i zastavit vozidlo"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 37,
+      "otazka": "Řidič motorového vozidla, které je povinně vybaveno přenosným trojúhelníkem, musí při nouzovém stání mimo obec tento trojúhelník umístit",
+      "moznosti": {
+        "a": "na okraj vozovky ve vzdálenosti nejméně 50 metrů za vozidlem, na dálnici nejméně 100 m za vozidlem",
+        "b": "na střed vozovky svého jízdního pruhu ve vzdálenosti nejméně 50 metrů za vozidlem, na dálnici nejméně 100 m za vozidlem",
+        "c": "na střechu vozidla, odkud bude zezadu dobře viditelný"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 38,
+      "otazka": "Řidič nesmí snížit náhle rychlost jízdy nebo náhle zastavit",
+      "moznosti": {
+        "a": "s výjimkou případu neprodleného nastoupení nebo vystoupení přepravovaných osob",
+        "b": "s výjimkou případu zkoušení brzd",
+        "c": "pokud to nevyžaduje bezpečnost provozu na pozemních komunikacích"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 39,
+      "otazka": "V obytné a pěší zóně smí řidič jet rychlostí nejvýše",
+      "moznosti": {
+        "a": "20 km/h",
+        "b": "25 km/h",
+        "c": "30 km/h"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 40,
+      "otazka": "Řidič, který při předjíždění vybočuje ze směru své jízdy",
+      "moznosti": {
+        "a": "nemusí dávat znamení o změně směru jízdy, pokud při předjíždění neomezí ani neohrozí řidiče jedoucí za ním",
+        "b": "dává znamení o změně směru jízdy jen tehdy, pokud jsou na dohlednou vzdálenost další účastníci silničního provozu",
+        "c": "musí dávat znamení o změně směru jízdy a nesmí ohrozit řidiče jedoucí za ním"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 41,
+      "otazka": "Řidič, který se po předjetí zařazuje před vozidlo, které předjel",
+      "moznosti": {
+        "a": "může omezit řidiče vozidla, které předjel, ale musí dávat znamení o změně směru jízdy",
+        "b": "nemusí dávat znamení o změně směru jízdy, pokud neomezí řidiče vozidla, které předjel",
+        "c": "musí dávat znamení o změně směru jízdy a nesmí ohrozit ani omezit řidiče vozidla, které předjel"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 42,
+      "otazka": "Řidič nesmí předjíždět",
+      "moznosti": {
+        "a": "nemá-li před sebe rozhled na takovou vzdálenost, která je nutná k bezpečnému předjetí",
+        "b": "pokud před tím nedal zvukové výstražné znamení",
+        "c": "pokud nemá před sebe rozhled na vzdálenost alespoň 100 m"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 43,
+      "otazka": "Řidič nesmí předjíždět",
+      "moznosti": {
+        "a": "na křižovatce s řízeným provozem při světelném signálu nebo pokynu „VOLNO“",
+        "b": "na přechodu pro chodce a bezprostředně před ním v případě, že se na něm vyskytují chodci",
+        "c": "na přechodu pro chodce nebo na přejezdu pro cyklisty a bezprostředně před nimi"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 44,
+      "otazka": "Přepravované věci musí být ve vozidle umístěny tak,",
+      "moznosti": {
+        "a": "aby nepřekážely v rychlém opuštění vozidla, například v případě dopravní nehody",
+        "b": "aby v případě dopravní nehody nemohlo dojít k jejich poškození",
+        "c": "aby neomezovaly a neohrožovaly řidiče nebo osoby přepravované ve vozidle a nebránily výhledu z místa řidiče"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 45,
+      "otazka": "Řidič odbočující vlevo se musí zařadit co nejdále vlevo v části vozovky určené pro jeho směr jízdy",
+      "moznosti": {
+        "a": "přitom nebere ohled na šířku vozovky",
+        "b": "s ohledem na rozměry vozidla nebo nákladu a šířku vozovky",
+        "c": "přitom nebere ohled na rozměry vozidla"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 46,
+      "otazka": "Přečnívá-li za snížené viditelnosti náklad z boku u motorového vozidla nebo jízdní soupravy vnější okraj obrysových světel o více než 400 mm, musí být přečnívající konec nákladu označen",
+      "moznosti": {
+        "a": "vpředu neoslňujícím bílým světlem a bílou odrazkou a vzadu červeným světlem a červenou odrazkou. Odrazky nesmějí být trojúhelníkového tvaru",
+        "b": "alespoň červeným praporkem o rozměrech nejméně 300 x 300 mm",
+        "c": "vpředu bílým světlem a trojúhelníkovou bílou odrazkou a vzadu červeným světlem a trojúhelníkovou červenou odrazkou"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 47,
+      "otazka": "Předepsaným způsobem musí být označen náklad, který přečnívá vozidlo vpředu nebo vzadu",
+      "moznosti": {
+        "a": "o více než 1 metr",
+        "b": "o více než 1,25 m",
+        "c": "o více než 1,5 m"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 48,
+      "otazka": "Zraněný si po dopravní nehodě stěžuje na bolesti břicha a pocit žízně",
+      "moznosti": {
+        "a": "podáváme mu jen studené nápoje",
+        "b": "podáváme mu dostatek vlažných nápojů",
+        "c": "nepodáváme mu žádné nápoje"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 49,
+      "otazka": "Při nakládání nebo skládání nákladu na pozemní komunikaci",
+      "moznosti": {
+        "a": "musí být náklad naložen nebo složen co nejrychleji a tak, aby nebyla ohrožena bezpečnost provozu na pozemních komunikacích",
+        "b": "musí osoby nakládající nebo skládající náklad používat výstražnou reflexní vestu",
+        "c": "musí být přibrána způsobilá a náležitě poučená osoba, která v tomto případě má právo řídit provoz v místě nakládky"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 50,
+      "otazka": "Nakládání či skládání nákladu na pozemní komunikaci",
+      "moznosti": {
+        "a": "je zakázáno, povolení uděluje příslušný útvar Policie České republiky",
+        "b": "je dovoleno jen tehdy, nelze-li to provést mimo pozemní komunikaci",
+        "c": "je zakázáno, povolení uděluje vlastník komunikace"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 51,
+      "otazka": "Jak se zachováte při kolapsovém stavu, kdy postižený upadne a ztrácí vědomí",
+      "moznosti": {
+        "a": "ihned zahájím resuscitaci",
+        "b": "postiženého posadím a zavolám záchrannou službu",
+        "c": "zvednu nohy postiženého a zajistím volné dýchací cesty"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 52,
+      "otazka": "Při stání musí zůstat volný alespoň jeden jízdní pruh široký nejméně",
+      "moznosti": {
+        "a": "3 m, pro každý směr jízdy",
+        "b": "3 m, společný pro oba směry jízdy",
+        "c": "2,5 m, společný pro oba směry jízdy"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 53,
+      "otazka": "Při zastavení musí zůstat volný alespoň jeden jízdní pruh široký nejméně",
+      "moznosti": {
+        "a": "2,5 m, určený pro každý směr jízdy samostatně",
+        "b": "3 m, určený pro každý směr jízdy samostatně",
+        "c": "3 m, pro oba směry jízdy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 54,
+      "otazka": "Zastavit a stát kolmo, popřípadě šikmo k okraji pozemní komunikace nebo zastavit v druhé řadě, smí řidič vozidla o celkové hmotnosti",
+      "moznosti": {
+        "a": "nepřevyšující 3500 kg pouze mimo obec",
+        "b": "nad 3500 kg pouze za nesnížené viditelnosti",
+        "c": "nepřevyšující 3500 kg v obci"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 55,
+      "otazka": "Řidič nesmí zastavit a stát",
+      "moznosti": {
+        "a": "v připojovacím nebo odbočovacím pruhu",
+        "b": "v odbočovacím pruhu, ve vzdálenosti kratší než 30 m od místa jeho připojení k průběžnému pruhu",
+        "c": "v připojovacím pruhu, ve vzdálenosti kratší než 30 m před místem připojení k průběžnému pruhu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 56,
+      "otazka": "Řidič nesmí zastavit a stát na železničním přejezdu, v tunelu a v podjezdu a ve vzdálenosti kratší než",
+      "moznosti": {
+        "a": "15 m před nimi a 15 m za nimi",
+        "b": "5 m před nimi a 5 m za nimi",
+        "c": "15 m před nimi a 5 m za nimi"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 57,
+      "otazka": "První pomoc je povinen poskytnout",
+      "moznosti": {
+        "a": "každý, kdo tak může učinit bez nebezpečí pro sebe nebo jiného",
+        "b": "jen ten, kdo prošel jakýmkoli zdravotnickým školením",
+        "c": "každý, pokud již dosáhl věku 18 let"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 58,
+      "otazka": "U poraněného s podezřením na úraz páteře",
+      "moznosti": {
+        "a": "smím s poraněným manipulovat bez omezení",
+        "b": "manipuluji s poraněným co nejméně, pouze v souvislosti se zajištěním životních funkcí",
+        "c": "s poraněným v žádném případě nehýbu"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 59,
+      "otazka": "Při vlečení motorového vozidla na tyči",
+      "moznosti": {
+        "a": "se smí jet rychlostí nejvýše 80 km/h",
+        "b": "musí být rozsvícena u vlečeného vozidla parkovací světla a zapnuto výstražné světelné zařízení",
+        "c": "musí být délka tyče taková, aby vzdálenost mezi vozidly nebyla menší než 1 m a větší než 6 m"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 60,
+      "otazka": "Při vlečení motorového na laně musí být jeho délka taková, aby vzdálenost mezi vozidly nebyla",
+      "moznosti": {
+        "a": "menší než 2,5 m a větší než 6 m",
+        "b": "menší než 2 m a větší než 5 m",
+        "c": "menší než 1 m a větší než 6 m"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 61,
+      "otazka": "Při vlečení motorového vozidla se smí jet rychlostí nejvýše",
+      "moznosti": {
+        "a": "50 km/h",
+        "b": "60 km/h, při jízdě na dálnici a silnici pro motorová vozidla nejvýše 80 km/h",
+        "c": "60 km/h"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 62,
+      "otazka": "Motorové vozidlo se smí vléci na laně pouze tehdy",
+      "moznosti": {
+        "a": "má-li bez závad řízení a účinné brzdy",
+        "b": "má-li bez závad řízení a osvětlení vozidla",
+        "c": "má-li účinné brzdy a vnější osvětlení vozidla"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 63,
+      "otazka": "Motorové vozidlo se smí vléci na tyči pouze tehdy",
+      "moznosti": {
+        "a": "má-li účinné vnější osvětlení vozidla",
+        "b": "má-li účinné brzdy",
+        "c": "má-li bez závad řízení"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 64,
+      "otazka": "Pokud při vlečení na tyči nemá vlečené vozidlo účinné brzdy, smí se vléci jen tehdy, pokud jeho okamžitá hmotnost není vyšší",
+      "moznosti": {
+        "a": "než 1,5násobek okamžité hmotnosti tažného (vlečného) vozidla",
+        "b": "než okamžitá hmotnost tažného (vlečného) vozidla",
+        "c": "než 2,5násobek okamžité hmotnosti tažného (vlečného) vozidla"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 65,
+      "otazka": "Vléci na laně nebo na tyči se smí",
+      "moznosti": {
+        "a": "maximálně dvě vlečená vozidla",
+        "b": "motorové vozidlo s návěsem",
+        "c": "motorové vozidlo s přívěsem"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 66,
+      "otazka": "Za motorovým vozidlem s přívěsem",
+      "moznosti": {
+        "a": "se smí vléci jiné motorové vozidlo",
+        "b": "se nesmí vléci jiné motorové vozidlo",
+        "c": "se smí vléci jiné motorové vozidlo, pokud jeho maximální přípustná hmotnost nepřesahuje 3 500 kg"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 67,
+      "otazka": "Řidiči vlečného a vlečeného vozidla jsou povinni si předem dohodnout",
+      "moznosti": {
+        "a": "způsob dorozumívání během jízdy",
+        "b": "maximální rychlost jízdy",
+        "c": "maximální rychlost jízdy a trasu, kterou pojedou"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 68,
+      "otazka": "Řidič smí jet jen takovou rychlostí, aby byl schopen zastavit vozidlo",
+      "moznosti": {
+        "a": "na vzdálenost na kterou má rozhled",
+        "b": "na vzdálenost maximálně 100 m",
+        "c": "na vzdálenost odpovídající jeho schopnostem a zkušenostem"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 69,
+      "otazka": "Ten kdo se v rozporu se zákonem nepodrobil pravidelné lékařské prohlídce a není proto držitelem platného posudku o zdravotní způsobilosti",
+      "moznosti": {
+        "a": "je zdravotně nezpůsobilý k řízení motorových vozidel",
+        "b": "ztrácí řidičské oprávnění",
+        "c": "je zdravotně způsobilý k řízení motorových vozidel do doby, než se pravidelné lékařské prohlídce podrobí, nejdéle však po dobu šesti měsíců"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 70,
+      "otazka": "Činná plocha pláště pneumatiky v provozu musí mít po celém obvodu a v celé šíři vrchního běhounu jasně viditelný dezén s hloubkou hlavních dezénových drážek",
+      "moznosti": {
+        "a": "u osobních vozidel 1,5 mm a u nákladních vozidel 2,0 mm",
+        "b": "u všech vozidel nejméně 1,0 mm",
+        "c": "u mopedů nejméně 1,0 a u vozidel ostatních kategorií nejméně 1,6 mm"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 71,
+      "otazka": "Řídit vozidlo ozbrojených sil samostatně může osoba, která",
+      "moznosti": {
+        "a": "ovládá řízení daného vozidla",
+        "b": "je držitelem alespoň příslušného řidičského oprávnění vyznačeného v řidičském průkazu",
+        "c": "je držitelem příslušného řidičského oprávnění a osvědčení k řízení vozidel ozbrojených sil a je na daný typ vozidla zaškolena"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 72,
+      "otazka": "Při řízení vozidla ozbrojených sil musí mít řidič u sebe",
+      "moznosti": {
+        "a": "příslušný řidičský průkaz a osvědčení k řízení vozidel ozbrojených sil příslušné skupiny",
+        "b": "provozní sešit nebo technický průkaz vozidla",
+        "c": "příslušný řidičský průkaz a alespoň vojenský průkaz vojáka"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 73,
+      "otazka": "Osvědčení k řízení vozidel ozbrojených sil je platné pouze s",
+      "moznosti": {
+        "a": "příslušným řidičským průkazem",
+        "b": "vojenským průkazem vojáka",
+        "c": "občanským průkazem"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 74,
+      "otazka": "Řidič vozidla ozbrojených sil je voják nebo občanský zaměstnanec, který",
+      "moznosti": {
+        "a": "řídí vozidlo ozbrojených sil na základě nařízení, rozkazu nebo pokynu nadřízeného (velitele) a je odborně a zdravotně způsobilý",
+        "b": "je držitelem alespoň příslušného řidičského oprávnění vyznačeného v řidičském průkazu",
+        "c": "ovládá řízení daného vozidla a je držitelem alespoň příslušného řidičského oprávnění vyznačeného v řidičském průkazu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 75,
+      "otazka": "Předat řízení vozidla ozbrojených sil lze jen osobě, která",
+      "moznosti": {
+        "a": "je držitelem příslušného řidičského oprávnění a osvědčení k řízení vozidel ozbrojených sil",
+        "b": "je držitelem alespoň příslušného řidičského oprávnění vyznačeného v řidičském průkazu",
+        "c": "ovládá řízení daného vozidla ozbrojených sil"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 76,
+      "otazka": "Použití soukromého vozidla ke služební nebo pracovní cestě může velitel povolit za těchto podmínek",
+      "moznosti": {
+        "a": "pro soukromé vozidlo je uzavřeno pojištění odpovědnosti za škodu způsobenou provozem vozidla a havarijní pojištění vozidla",
+        "b": "pro soukromé vozidlo je uzavřeno pojištění odpovědnosti za škodu způsobenou provozem vozidla",
+        "c": "pro soukromé vozidlo je uzavřeno pojištění odpovědnosti za škodu způsobenou provozem vozidla nebo havarijní pojištění"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 77,
+      "otazka": "V osobním automobilu se sejmutou nebo shrnutou, plachtovou střechou",
+      "moznosti": {
+        "a": "lze přepravovat osoby i na místech, která nejsou vybavena bezpečnostním pásem",
+        "b": "nelze přepravovat osoby místech, která nejsou vybavena bezpečnostním pásem. O výjimce může rozhodnout velitel, učitel nebo řídící výcviku",
+        "c": "nelze přepravovat osoby na místech, která nejsou vybavena bezpečnostním pásem"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 78,
+      "otazka": "Na veřejně přístupné komunikaci nebo parkovišti lze vozidlo ozbrojených sil parkovat výjimečně",
+      "moznosti": {
+        "a": "přitom vozidlo musí být vybaveno elektronickým nebo mechanickým zařízením proti neoprávněnému použití vozidla",
+        "b": "přitom vozidlo musí být vybaveno elektronickým a mechanickým zařízením proti neoprávněnému použití vozidla",
+        "c": "přitom vozidlo musí být vybaveno elektronickým zařízením proti neoprávněnému použití vozidla („alarmem“)"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 79,
+      "otazka": "Vojenská policie",
+      "moznosti": {
+        "a": "nesmí zastavovat a kontrolovat vozidla ozbrojených sil mimo vojenské objekty",
+        "b": "smí zastavovat a kontrolovat vozidla ozbrojených sil pouze za přítomnosti policie ČR",
+        "c": "má právo zastavovat a kontrolovat vozidla ozbrojených sil a jejich řidiče ve vojenských objektech i mimo ně"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 80,
+      "otazka": "Vojenská policie má právo",
+      "moznosti": {
+        "a": "zastavovat a kontrolovat vozidla ozbrojených sil, a jejich řidiče",
+        "b": "zastavovat a kontrolovat vozidla ozbrojených sil, ale pouze ve vojenském objektu",
+        "c": "zastavovat vozidla ozbrojených sil a kontrolovat jejich řidiče jen za přítomnosti policie ČR"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 81,
+      "otazka": "Příslušník vojenské pořádkové služby je oprávněn",
+      "moznosti": {
+        "a": "zastavovat vozidla ozbrojených sil, jejichž řidiči hrubým způsobem porušili dopravní kázeň pouze za přítomnosti vojenské policie nebo policie ČR",
+        "b": "zastavovat vozidla ozbrojených sil, jejichž řidiči hrubým způsobem porušili dopravní kázeň",
+        "c": "zastavovat a kontrolovat vozidla ozbrojených sil a jejich řidiče, nesmí však kontrolovat přepravovaný materiál"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 82,
+      "otazka": "Dopravní nehodu vozidla ozbrojených sil ve vojenském objektu, při které došlo ke zranění, je řidič povinen oznámit",
+      "moznosti": {
+        "a": "veliteli jednotky a dozorčímu parku",
+        "b": "pouze Vojenské policii",
+        "c": "provozovateli vozidla a Vojenské policii"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 83,
+      "otazka": "Dopravní nehodu vozidla ozbrojených sil mimo vojenský objekt je řidič povinen oznámit",
+      "moznosti": {
+        "a": "provozovateli vozidla a ve stanovených případech i Policii ČR",
+        "b": "pouze Vojenské policii",
+        "c": "veliteli jednotky a dozorčímu parku"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 84,
+      "otazka": "Příslušník vojenské pořádkové služby je oprávněn",
+      "moznosti": {
+        "a": "zabránit v jízdě řidiči vojenského vozidla, které vykazuje zjevnou závadu ohrožující bezpečnost ostatních účastníků provozu",
+        "b": "povolit řidiči vojenského vozidla, které vykazuje zjevnou závadu ohrožující bezpečnost ostatních účastníků provozu, aby pokračoval sníženou rychlostí pouze do nejbližšího místa opravy vozidla",
+        "c": "podrobit vozidlo nebo jízdní soupravu kontrole technického stavu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 85,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen podrobit vozidlo nebo jízdní soupravu kontrole technického stavu na výzvu",
+      "moznosti": {
+        "a": "policisty a strážníka obecní policie",
+        "b": "policisty nebo vojenského policisty",
+        "c": "policisty a celníka"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 86,
+      "otazka": "Při kontrole vozidla příslušníkem vojenské pořádkové služby",
+      "moznosti": {
+        "a": "se pokyny příslušníka vojenské pořádkové služby netýkají velitele vozidla, ani ostatních osob ve vozidle",
+        "b": "příslušník vojenské pořádkové služby není oprávněn kontrolovat vozidla ozbrojených sil",
+        "c": "řidič, velitel vozu a ostatní osoby ve vozidle postupují podle pokynů příslušníka vojenské pořádkové služby"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 87,
+      "otazka": "Používání vozidel ozbrojených sil v uzavřeném objektu stanovuje",
+      "moznosti": {
+        "a": "velitel objektu",
+        "b": "podmínky vjezdu, výjezdu a kontroly vozidel stanovuje velitel objektu, úpravu řízení provozu pak stanovuje Vojenská policie",
+        "c": "Vojenská policie"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 88,
+      "otazka": "Po sdělení vojenského policisty o provedení kontroly je řidič vozidla ozbrojených sil povinen",
+      "moznosti": {
+        "a": "zastavit motor a zajistit vozidlo proti pohybu a postupovat podle jeho pokynů",
+        "b": "dbát jeho pokynů, pouze pokud je vojenský policista vyšší hodnosti",
+        "c": "dbát jeho pokynů, pokud se vojenský policista prokáže plnou mocí k provedení kontroly"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 89,
+      "otazka": "Je Vojenský policista oprávněn zakázat s okamžitou platností další používání vozidla ozbrojených sil pro závady ohrožující bezpečnost silničního provozu",
+      "moznosti": {
+        "a": "není oprávněn, ale provede zápis do jízdního dokladu vozidla",
+        "b": "není oprávněn, ale upozorní řidiče a povolí nouzové dojetí vozidla",
+        "c": "ano je oprávněn zakázat další použití vozidla"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 90,
+      "otazka": "Řidiči může Vojenská policie odejmout osvědčení k řízení vozidel ozbrojených sil",
+      "moznosti": {
+        "a": "jestliže řidič opakovaně hrubým způsobem porušil své povinnosti, nebo přestal splňovat podmínky, na základě kterých mu bylo osvědčení vydáno",
+        "b": "kdykoliv se dopustil dopravního přestupku",
+        "c": "nemůže, osvědčení k řízení vozidel ozbrojených sil se neodebírá"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 91,
+      "otazka": "Vozidlo ozbrojených sil, kterému bylo pro závady v technické stavu zakázáno další používání nebo zadrženo osvědčení o technickém průkazu",
+      "moznosti": {
+        "a": "nesmí být dále provozováno",
+        "b": "může být dále provozováno, ale pouze ve vojenském objektu",
+        "c": "může být provozováno pouze se svolením náčelníka KTS"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 92,
+      "otazka": "Přestupku na úseku ochrany před alkoholismem a jinými toxikomaniemi se dopustí ten",
+      "moznosti": {
+        "a": "kdo požije alkoholický nápoj nebo užije jinou návykovou látku v takové době před zahájením jízdy, že by v době jízdy ještě mohl být pod vlivem alkoholu nebo jiné návykové látky",
+        "b": "kdo požije alkoholický nápoj nebo užije jinou návykovou látku",
+        "c": "kdo převáží ve vozidle alkoholický nápoj nebo návykové látky"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 93,
+      "otazka": "Podrobit se vyšetření, zda není ovlivněn alkoholem nebo jinou návykovou látkou, řidič vozidla ozbrojených sil",
+      "moznosti": {
+        "a": "je povinen pouze na výzvu policisty",
+        "b": "není povinen",
+        "c": "je povinen na výzvu zaměstnavatele, ošetřujícího lékaře, policisty, vojenského policisty a strážníka obecní policie"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 94,
+      "otazka": "Řidič nesmí požít alkoholický nápoj",
+      "moznosti": {
+        "a": "během jízdy, nebo v takové době před jízdou, kdy by mohl být při řízení vozidla ovlivněn alkoholem",
+        "b": "pouze během jízdy; „zbytkový“ alkohol po předchozím požití alkoholu je přípustný",
+        "c": "minimálně po dobu 6 hodin před řízením vozidla"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 95,
+      "otazka": "Řidič nesmí požít alkoholický nápoj nebo užít návykovou látku",
+      "moznosti": {
+        "a": "během jízdy",
+        "b": "bezprostředně po skončení jízdy",
+        "c": "ještě minimálně 6 hodin po ukončení jízdy"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 96,
+      "otazka": "Řidič vozidla ozbrojených sil uvede příjmení velitele vozidla v jízdním dokladu",
+      "moznosti": {
+        "a": "po ukončení jízdy",
+        "b": "před zahájením jízdy",
+        "c": "příjmení velitele vozidla řidič neuvádí"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 97,
+      "otazka": "Řidič vozidla ozbrojených sil je při řízení vozidla (tj. ve vozidle) podřízen",
+      "moznosti": {
+        "a": "veliteli vozidla jen pokud má tento stejnou nebo vyšší hodnost",
+        "b": "veliteli vozidla bez ohledu na jeho hodnost",
+        "c": "dozorčímu parku techniky"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 98,
+      "otazka": "Okolnosti, které brání řízení vozidla ozbrojených sil bezpečně řídit vozidlo",
+      "moznosti": {
+        "a": "je povinen včas oznámit nejbližšímu nadřízenému",
+        "b": "oznamuje podle svého rozhodnutí až bezprostředně před vznikem kritické situace",
+        "c": "vzhledem ke své právní odpovědnosti nemusí nikomu oznamovat"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 99,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen po návratu k útvaru hlásit události a závady, které vznikly během používání vozidla",
+      "moznosti": {
+        "a": "není povinen hlásit",
+        "b": "pouze náčelníkovi KTS",
+        "c": "podle směrnice pro používání vozidel u organizačního celku vydané provozovatelem"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 100,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen veškeré události v používání techniky (např. dopravní nehoda, technická havárie, zcizení vozidla nebo nákladu, porucha) hlásit",
+      "moznosti": {
+        "a": "pouze dozorčímu vchodu, který evidoval jeho odjezd z objektu kasáren",
+        "b": "podle směrnice pro používání vozidel vydané provozovatelem",
+        "c": "pouze náčelníkovi KTS"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 101,
+      "otazka": "Převzetí řízení vozidla ozbrojených sil jiným řidičem při služební (pracovní) cestě",
+      "moznosti": {
+        "a": "se nezaznamenává v jízdním dokladu",
+        "b": "se neprodleně zaznamená v jízdním dokladu",
+        "c": "v tomto případě není dovoleno přebírat řízení"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 102,
+      "otazka": "O předání řízení vozidla ozbrojených sil při služební (pracovní) cestě jinému řidiči",
+      "moznosti": {
+        "a": "rozhoduje velitel vozidla",
+        "b": "rozhodne řidič podle vzniklých okolností",
+        "c": "nelze rozhodnout, je zakázáno"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 103,
+      "otazka": "Řidič vozidla ozbrojených sil",
+      "moznosti": {
+        "a": "po splnění dílčího úkolu uzavře jízdní doklad svým podpisem",
+        "b": "po zagarážování vozidla odevzdá jízdní doklad uživateli vozidla",
+        "c": "po splnění dílčího úkolu předloží jízdní doklad veliteli vozidla k uzavření"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 104,
+      "otazka": "Jízdním dokladem vozidla je",
+      "moznosti": {
+        "a": "příkaz k použití techniky, deník vykonaných jízd, kniha provozu vojenské techniky",
+        "b": "technický průkaz vojenského vozidla",
+        "c": "řidičský průkaz a osvědčení k řízení vozidel ozbrojených sil"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 105,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen nejpozději po uplynutí maximální doby řízení, která činí 4,5 hod řízení přerušit a vykonat bezpečnostní přestávku v trvání",
+      "moznosti": {
+        "a": "nejméně 20 minut",
+        "b": "nejméně 30 minut",
+        "c": "dělku přestávky se určí řidič sám, nejméně však 15 minut"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 106,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen přesně a čitelně vést stanovené záznamy o provozu vozidla",
+      "moznosti": {
+        "a": "v provozním sešitě vozidla",
+        "b": "v jízdním dokladu vozidla",
+        "c": "v zápisu o technickém stavu vozidla"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 107,
+      "otazka": "Při znečištění pozemní komunikace po vyjetí vozidla z terénu je povinen zabezpečit očištění vozovky",
+      "moznosti": {
+        "a": "provozovatel vozidla",
+        "b": "řidič vozidla",
+        "c": "správce komunikace"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 108,
+      "otazka": "Při znečištění pozemní komunikace používáním vozidla ozbrojených sil je řidič tohoto vozidla povinen",
+      "moznosti": {
+        "a": "bez ohledu na znečištění plnit dále dopravní úkol",
+        "b": "odstranit nečistoty z komunikace",
+        "c": "zabezpečit označení komunikace značkou „Nebezpečí smyku“"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 109,
+      "otazka": "Řidič vozidla ozbrojených sil o maximální přípustné hmotnosti převyšující 3 500 kg nesmí mít denní dobu řízení vozidla delší",
+      "moznosti": {
+        "a": "než 9 hodin přičemž tuto dobu lze nejvýše dvakrát týdně prodloužit na 10 hodin",
+        "b": "než 10 hodin",
+        "c": "než 11 hodin"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 110,
+      "otazka": "Při přepravě zbraní, munice nebo výbušin a provozu vozidel zvláštní důležitosti musí funkci velitele vozidla vykonávat",
+      "moznosti": {
+        "a": "vždy jiná osoba než řidič vozidla",
+        "b": "pouze voják v činné službě",
+        "c": "řidič vozidla"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 111,
+      "otazka": "Velitel vozidla se určuje z řad vojáků v činné službě nebo občanských zaměstnanců",
+      "moznosti": {
+        "a": "jen pro vozidlo přepravující osoby",
+        "b": "jen pro vozidla určená velitelem",
+        "c": "pro každé vozidlo"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 112,
+      "otazka": "Přeprava osob na ložné ploše vozidla ozbrojených sil",
+      "moznosti": {
+        "a": "je při plnění služebních úkolů povolena pro všechny zaměstnance AČR",
+        "b": "je povolena jen pro vojáky v činné službě",
+        "c": "je zakázána, povolení vydává provozovatel vozidla"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 113,
+      "otazka": "Hrozí-li nebezpečí z prodlení, povoluje přepravu civilních osob ve vozidle ozbrojených sil",
+      "moznosti": {
+        "a": "provozovatel vozidla",
+        "b": "řidič",
+        "c": "velitel vozidla"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 114,
+      "otazka": "Přepravovat na ložné ploše vozidla ozbrojených sil jiné osoby než vojáky v činné službě",
+      "moznosti": {
+        "a": "lze pouze při plnění úkolů civilní ochrany, integrovaného záchranného systému a živelní pohromě",
+        "b": "lze pouze při živelní pohromě",
+        "c": "lze, povolení vydává provozovatel vozidla"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 115,
+      "otazka": "Ve vozidle ozbrojených sil je řidiči zakázáno",
+      "moznosti": {
+        "a": "poslouchat rádio",
+        "b": "konzumovat potraviny",
+        "c": "kouřit"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 116,
+      "otazka": "Vykonává-li funkci velitele vozidla řidič, do příslušné kolonky v jízdním dokladu",
+      "moznosti": {
+        "a": "uvede příjmení velitele organické jednotky",
+        "b": "příjmení velitele vozidla v tomto případě neuvádí",
+        "c": "uvede své příjmení"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 117,
+      "otazka": "Velitel vozidla je podřízen",
+      "moznosti": {
+        "a": "řidiči vozidla, ale jen během jízdy vozidla",
+        "b": "tomu kdo jej do funkce určil",
+        "c": "přepravovaným osobám, které jsou hodnostně nebo funkcí vyšší"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 118,
+      "otazka": "Velitel vozidla je nadřízen",
+      "moznosti": {
+        "a": "všem osobám, které se ve vozidle přepravují",
+        "b": "pouze řidiči vozidla",
+        "c": "jen přepravovaným osobám, které jsou hodnostně nebo funkcí nižší"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 119,
+      "otazka": "V případě, že velitel vozidla nebyl určen nadřízeným, stává se jím",
+      "moznosti": {
+        "a": "ten komu je vozidlo přiděleno k plnění služebních (pracovních) úkolů",
+        "b": "kterýkoliv voják v činné službě",
+        "c": "vždy řidič vozidla"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 120,
+      "otazka": "Provozovatelem vozidla ozbrojených sil je",
+      "moznosti": {
+        "a": "velitel jednotky (roty), který má vozidlo v tabulkách počtů a účetní evidenci",
+        "b": "uživatel vozidla, který má vozidlo přiděleno k plnění stanoveného úkolu",
+        "c": "vedoucí organizačního celku"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 121,
+      "otazka": "Proud vozidel ozbrojených sil tvoří nejméně",
+      "moznosti": {
+        "a": "3 vozidla",
+        "b": "4 vozidla",
+        "c": "2 vozidla"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 122,
+      "otazka": "Řidič může zaparkovat vozidlo ozbrojených sil v parku techniky svého útvaru",
+      "moznosti": {
+        "a": "pouze na místě vyhrazeném pro jeho vozidlo",
+        "b": "kdekoliv v prostoru vyhrazeném pro jeho jednotku",
+        "c": "podle vlastního uvážení tak, aby neohrožovalo bezpečnost provozu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 123,
+      "otazka": "Klíče od dveří kabin a spínacích skříněk vozidel ozbrojených sil se ukládají",
+      "moznosti": {
+        "a": "u dozorčího útvaru",
+        "b": "u řidičů, kteří mají vozidla převzata",
+        "c": "u dozorčího parku"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 124,
+      "otazka": "Při jízdě vozidla ozbrojených sil do jiné posádky je řidič povinen zagarážovat vozidlo přednostně",
+      "moznosti": {
+        "a": "na vyhrazeném místě u vojenského útvaru, zpravidla určeného velitelem posádky",
+        "b": "na hlídaném parkovišti",
+        "c": "kdekoli, při dodržení pravidel silničního provozu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 125,
+      "otazka": "Vstupovat do parku techniky jednotlivě, je řidiči povoleno",
+      "moznosti": {
+        "a": "po předložení platného jízdního dokladu vozidla",
+        "b": "po předložení osvědčení k řízení vozidel ozbrojených sil",
+        "c": "po předložení řidičského průkazu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 126,
+      "otazka": "Vozidlo, které přepravuje nebezpečné věci (náklad)",
+      "moznosti": {
+        "a": "musí být označeno zvláštním výstražným světlem oranžové barvy",
+        "b": "musí být označeno oranžovými reflexními tabulkami a popř. bezpečnostními značkami, které odpovídají předpisům",
+        "c": "nemusí být označeno, stačí vybavení řidiče písemným prohlášením odesílatele o množství přepravovaného zboží"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 127,
+      "otazka": "Základní pravidla provozu vozidel ozbrojených sil a povinnosti jednotlivých osob při něm stanovuje",
+      "moznosti": {
+        "a": "RMO č. 4/2018",
+        "b": "zákon číslo 219/1999 Sb., o ozbrojených silách České republiky",
+        "c": "služební předpis Zákl-1"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 128,
+      "otazka": "Vozidlo ozbrojených sil předává řidiči do materiální péče",
+      "moznosti": {
+        "a": "náčelník KTS",
+        "b": "řidič, který měl vozidlo přiděleno",
+        "c": "velitel jednotky"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 129,
+      "otazka": "Převzetí vozidla ozbrojených sil do materiální péče potvrzuje svým podpisem řidič",
+      "moznosti": {
+        "a": "v jízdním dokladu vozidla",
+        "b": "v zápisu o technickém stavu vozidla",
+        "c": "v provozním sešitě"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 130,
+      "otazka": "Předání vozidla ozbrojených sil řidiči a jeho převzetí do materiální péče",
+      "moznosti": {
+        "a": "se provádí jen u bojových vozidel a vozidel kategorie VN",
+        "b": "potvrzuje řidič svým podpisem v provozním sešitě",
+        "c": "řidič svým podpisem nepotvrzuje, stačí uveřejnění v rozkaze velitele"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 131,
+      "otazka": "Vozidlo ozbrojených sil, které vykazuje nadměrnou spotřebu paliva",
+      "moznosti": {
+        "a": "je zakázáno používat",
+        "b": "lze používat jen do nejbližší technické údržby, kdy musí být opraveno",
+        "c": "je zakázáno používat, dokud není provedena kontrola náčelníkem KTS, který rozhodne o jeho dalším používání"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 132,
+      "otazka": "Pro přepravu nebezpečného nákladu v množství menším než stanoveném, vyňatém nebo omezeném množství",
+      "moznosti": {
+        "a": "nelze užít vozidlo, které nesplňuje stanovené podmínky",
+        "b": "nelze užít osobní vozidlo",
+        "c": "lze užít i osobní vozidlo, které nesplňuje stanovené podmínky"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 133,
+      "otazka": "Při přepravě nebezpečného nákladu se provádí kontrolní zastávka",
+      "moznosti": {
+        "a": "po 10 km jízdy a následně každých 30 km",
+        "b": "po maximálně 30 minutách jízdy a následně podle rozhodnutí velitele vozu",
+        "c": "po maximálně 30 minutách jízdy a následně v intervalech ne větších než 2 hodiny"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 134,
+      "otazka": "Provozní jednotka je veličina pro měření vykonané práce techniky a číselně se udává například",
+      "moznosti": {
+        "a": "v kilogramech, tunách",
+        "b": "v ujetých kilometrech, litrech spotřebovaného paliva, odpracovaných motohodinách",
+        "c": "v kilowatech, koních"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 135,
+      "otazka": "Jízdní doklad vozidla ozbrojených sil, které přepravuje nebezpečný náklad, musí obsahovat",
+      "moznosti": {
+        "a": "nemusí obsahovat zvláštní záznam",
+        "b": "povolení vojenské policie o této přepravě",
+        "c": "zvláštní záznam o této přepravě"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 136,
+      "otazka": "Vozidlo ozbrojených sil při přepravě nebezpečného nákladu",
+      "moznosti": {
+        "a": "se označuje předepsaným způsobem pouze za snížené viditelnosti",
+        "b": "musí být označeno předepsaným způsobem",
+        "c": "nemusí být označeno"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 137,
+      "otazka": "Řidič vozidla ozbrojených sil, které přepravuje nebezpečný náklad",
+      "moznosti": {
+        "a": "musí absolvovat speciální školení (poučení) o této přepravě",
+        "b": "nemusí se zúčastnit žádného speciálního školení (poučení)",
+        "c": "musí být držitelem řidičského oprávnění alespoň skupiny „C“"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 138,
+      "otazka": "Vozidlo ozbrojených sil při přepravě nebezpečného nákladu",
+      "moznosti": {
+        "a": "nemusí mít žádnou speciální výbavu",
+        "b": "musí být vybaveno speciální výbavou a pomůckami",
+        "c": "nemusí být označeno"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 139,
+      "otazka": "Je zakázáno používat vozidlo ozbrojených sil, které",
+      "moznosti": {
+        "a": "není vybaveno záložními baňkami na pohonné hmoty",
+        "b": "nebylo po předcházející jízdě doplněno provozními hmotami",
+        "c": "vykazuje nadměrnou spotřebu palivy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 140,
+      "otazka": "Ustanovení o nepřetržité době řízení vozidla ozbrojených sil jedním řidičem",
+      "moznosti": {
+        "a": "se musí dodržet",
+        "b": "se musí dodržet jen v pracovní době podle denního řádu útvaru",
+        "c": "se nemusí dodržet, pokud řidič souhlasí s delší nepřetržitou jízdou"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 141,
+      "otazka": "Ustanovení o denní a týdenní době řízení vozidla ozbrojených sil jedním řidičem",
+      "moznosti": {
+        "a": "se musí dodržet",
+        "b": "se musí dodržet jen v pracovní době podle denního řádu útvaru se nemusí dodržet, pokud řidič souhlasí s delší nepřetržitou jízdou"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 142,
+      "otazka": "Řidič vozidla ozbrojených sil při bezpečnostní přestávce v řízení",
+      "moznosti": {
+        "a": "nesmí vykonávat žádnou pracovní činnost",
+        "b": "smí provádět kontrolní prohlídku a dozor nad vozidlem a jeho nákladem",
+        "c": "může vykonávat jakoukoliv činnost podle nařízení nadřízených"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 143,
+      "otazka": "Bezpečnostní přestávky při řízení vozidla ozbrojených sil",
+      "moznosti": {
+        "a": "je řidič povinen dodržovat ve stanovených lhůtách",
+        "b": "není řidič povinen dodržovat, pokud se necítí unaven",
+        "c": "řidič musí dodržet jen v pracovní době podle denního řádu útvaru"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 144,
+      "otazka": "Vozidlo ozbrojených sil, na kterém není včas a řádně provedena základní údržba",
+      "moznosti": {
+        "a": "je povoleno používat jen do nejbližšího termínu parkového dne u jednotky, kdy musí být údržba provedena",
+        "b": "je zakázáno používat",
+        "c": "je povoleno používat jen při provozu mimo veřejně přístupné pozemní komunikace"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 145,
+      "otazka": "Cílem kontrolní prohlídky vozidla ozbrojených sil je",
+      "moznosti": {
+        "a": "seřídit jednotlivé agregáty vozidla na předepsané normy",
+        "b": "doplnit palivo a promazat základní mazaná místa na vozidle",
+        "c": "prověřit úplnost vozidla, technický stav a náplně provozních hmot bezprostředně před a během používání"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 146,
+      "otazka": "Obsahem kontrolní prohlídky vozidla ozbrojených sil při zastávkách",
+      "moznosti": {
+        "a": "je kontrola těsnosti a doplnění oleje ve skupinách vozidla, vyčištění čističů vzduchu",
+        "b": "je kontrola těsnosti skupin vozidla, stavu podvozku a upevnění výstroje",
+        "c": "je kontrola dotažení spojů podvozku a jeho promazání"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 147,
+      "otazka": "Cílem údržby po použití (po jízdě, střelbě, výcviku apod.) vozidla ozbrojených sil je především",
+      "moznosti": {
+        "a": "zkontrolovat stav vozidla, doplnit provozní hmoty a připravit vozidlo k dalšímu bezporuchovému používání",
+        "b": "prověřit úplnost předepsané dokumentace a výbavy vozidla",
+        "c": "zkontrolovat stav vozidla a provést seřízení jednotlivých částí vozidla podle stanoveného technologického postupu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 148,
+      "otazka": "Je zakázáno používat vozidlo ozbrojených sil, které",
+      "moznosti": {
+        "a": "není vybaveno záložními baňkami na pohonné hmoty",
+        "b": "vykazuje nadměrnou spotřebu paliva",
+        "c": "nebylo po předcházející jízdě doplněno provozními hmotami"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 149,
+      "otazka": "Kontrolní prohlídka vozidla ozbrojených sil se provádí",
+      "moznosti": {
+        "a": "jedenkrát za týden zpravidla v pondělí",
+        "b": "při každém přerušení jízdy",
+        "c": "před výjezdem a při zastávkách"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 150,
+      "otazka": "Před zahájením jízdy musí řidič vozidla ozbrojených sil provést na vozidle",
+      "moznosti": {
+        "a": "kontrolní prohlídku před použitím",
+        "b": "základní údržbu",
+        "c": "technickou údržbu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 151,
+      "otazka": "Údržbu po použití vozidla ozbrojených sil provádí řidič (osádka)",
+      "moznosti": {
+        "a": "každý týden v posledním pracovním dnu",
+        "b": "po ukončení denního provozu bez ohledu na počet ujetých km",
+        "c": "dvakrát za měsíc při parkových dnech"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 152,
+      "otazka": "Údržbu po použití vozidla ozbrojených sil provádí",
+      "moznosti": {
+        "a": "dílenští specialisté pod řízením velitele",
+        "b": "řidič, osádka (obsluha) vozidla",
+        "c": "uživatel vozidla pod řízením náčelníka kontrolně technické stanice"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 153,
+      "otazka": "Údržba po použití (po jízdě, střelbě, výcviku apod.) se provádí",
+      "moznosti": {
+        "a": "dvakrát za měsíc zpravidla při parkových dnech jednotky",
+        "b": "podle skutečně odpracovaného provozního ukazatele",
+        "c": "po ukončení používání techniky bez ohledu na počet odpracovaných provozních jednotek"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 154,
+      "otazka": "Za kvalitu údržby po použití v nařízeném rozsahu odpovídá",
+      "moznosti": {
+        "a": "řidič vozidla",
+        "b": "prostřednictvím velitele jednotky velitel útvaru (náčelník zařízení)",
+        "c": "velitel organické jednotky prostřednictvím technika této jednotky"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 155,
+      "otazka": "Nízká teplota vzduchu způsobuje",
+      "moznosti": {
+        "a": "zhoršení těsnosti motoru",
+        "b": "zhoršení nasávání vzduchu do motoru",
+        "c": "zvýšení viskozity olejů a pokles kapacity akumulátorů"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 156,
+      "otazka": "Snížená teplota akumulátoru způsobuje",
+      "moznosti": {
+        "a": "zvýšení jeho kapacity",
+        "b": "snížení jeho kapacity",
+        "c": "zvýšení jeho napětí"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 157,
+      "otazka": "Základní údržba vozidla ozbrojených sil, které bylo používáno, se provádí",
+      "moznosti": {
+        "a": "vždy po ukončení denního provozu",
+        "b": "dvakrát za měsíc po návratu jednotky ze cvičení",
+        "c": "každý týden v posledním pracovním dnu"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 158,
+      "otazka": "Řidič vozidla ozbrojených sil při zjištění závady v průběhu kontrolní prohlídky při zastávce",
+      "moznosti": {
+        "a": "hlásí závadu až po skončení jízdy",
+        "b": "hlásí závadu uživateli (veliteli) vozidla",
+        "c": "nemá povinnost hlásit závadu"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 159,
+      "otazka": "Při služební (pracovní) cestě, zodpovídá za provedení údržby po použití vozidla ozbrojených sil",
+      "moznosti": {
+        "a": "uživatel (velitel) vozidla (osádky), jemuž bylo vozidlo přiděleno k plnění úkolů",
+        "b": "technik organické jednotky",
+        "c": "velitel (správce) objektu kde je technika parkovaná"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 160,
+      "otazka": "Propojení elektrických soustav dvou vozidel pomocí propojovacích kabelů lze provádět",
+      "moznosti": {
+        "a": "u vozidel se stejným jmenovitým napětím a s opačně ukostřenými póly",
+        "b": "bez omezujících podmínek",
+        "c": "u vozidel se stejným jmenovitým napětím a se stejným ukostřeným pólovým vývodem akumulátoru"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 161,
+      "otazka": "Při propojování elektrických soustav vozidel je nutno propojit jako první",
+      "moznosti": {
+        "a": "libovolný pólový vodič",
+        "b": "neukostřený pólový vodič",
+        "c": "ukostřený pólový vodič"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 162,
+      "otazka": "Jestliže řidič zjistí, že hladina oleje v motoru je pod její minimální výškou",
+      "moznosti": {
+        "a": "může se zvýšenou opatrností pokračovat v jízdě maximální rychlostí do 50 km/h",
+        "b": "může doplnit jakýkoliv olej",
+        "c": "nesmí spouštět motor, pokud neprovede doplnění předepsaného oleje"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 163,
+      "otazka": "Pokud řidič zjistí při jízdě nulový tlak oleje v mazací soustavě motoru",
+      "moznosti": {
+        "a": "musí okamžitě zastavit motor",
+        "b": "může pokračovat v jízdě maximální rychlostí 30 km/h",
+        "c": "musí zastavit vozidlo a dochlazovat motor při volnoběžných otáčkách bez zatížení"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 164,
+      "otazka": "Hladina elektrolytu v článcích akumulátorů musí dosahovat",
+      "moznosti": {
+        "a": "po horní okraj desek",
+        "b": "alespoň do tří čtvrtin desek",
+        "c": "10 až 15 mm nad horní okraj desek"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 165,
+      "otazka": "Při zjištění úbytku elektrolytu v článcích akumulátoru, řidič doplní",
+      "moznosti": {
+        "a": "destilovanou vodu",
+        "b": "pitnou vodu",
+        "c": "správně naředěný elektrolyt"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 166,
+      "otazka": "Znečištěný čistič vzduchu způsobuje",
+      "moznosti": {
+        "a": "zavzdušňování palivové soustavy motoru",
+        "b": "nemá vliv na činnost motoru",
+        "c": "snížení výkonu motoru a zvyšování spotřeby paliva"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 167,
+      "otazka": "Pokud v průběhu jízdy vozidla dojde k přehřívání motoru, je řidič povinen",
+      "moznosti": {
+        "a": "pokračovat v jízdě co nejvyšší rychlostí pro ochlazení motoru proudícím vzduchem",
+        "b": "ihned zastavit motor",
+        "c": "dochlazovat motor změnou stylu jízdy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 168,
+      "otazka": "Elektrický spouštěč motoru smí být jednorázově v činnosti (doporučená doba)",
+      "moznosti": {
+        "a": "maximálně po dobu 15 sekund",
+        "b": "maximálně po dobu 5 sekund",
+        "c": "po libovolnou dobu"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 169,
+      "otazka": "Zatížit motor vozidla na plný výkon se smí",
+      "moznosti": {
+        "a": "při jakékoliv teplotě motoru",
+        "b": "až po ujetí minimálně 5 km na druhý rychlostní stupeň",
+        "c": "až po částečném zahřátí motoru jízdou na nižší převodový stupeň"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 170,
+      "otazka": "Maximální přípustná teplota motoru vozidla",
+      "moznosti": {
+        "a": "se může překročit pouze při jízdě v terénu",
+        "b": "se nesmí překročit",
+        "c": "se může překročit, je-li teplota atmosférického vzduchu pod bodem mrazu"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 171,
+      "otazka": "Maximální otáčky motoru vozidla se",
+      "moznosti": {
+        "a": "mohou překračovat při jízdě v klesání",
+        "b": "nesmí překračovat",
+        "c": "mohou překračovat bez omezení"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 172,
+      "otazka": "Maximální přípustná teplota oleje motoru",
+      "moznosti": {
+        "a": "se může překročit, je-li teplota atmosférického vzduchu pod bodem mrazu",
+        "b": "se nesmí překročit",
+        "c": "se může překročit pouze při jízdě v terénu"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 173,
+      "otazka": "Při zvyšování rychlosti jízdy se zorné pole řidiče",
+      "moznosti": {
+        "a": "nemění",
+        "b": "rozšiřuje",
+        "c": "zužuje"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 174,
+      "otazka": "Mezi prvky aktivní bezpečnosti vozidla patří",
+      "moznosti": {
+        "a": "dobrý výhled z vozidla",
+        "b": "deformovatelná přední část vozidla",
+        "c": "airbag"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 175,
+      "otazka": "Pojem „defenzivní způsob jízdy“ znamená",
+      "moznosti": {
+        "a": "trvat na svém právu vyplývajícím ze zákona o provozu na pozemních komunikacích",
+        "b": "počítat s chybami ostatních účastníků provozu na pozemních komunikacích",
+        "c": "opatrně zastavit na každé křižovatce"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 176,
+      "otazka": "Airbagy",
+      "moznosti": {
+        "a": "plní svou funkci pouze při správném použití zádržného systému (bezpečnostního pásu)",
+        "b": "plně nahrazují funkci bezpečnostních pásů i jiných zádržných systémů",
+        "c": "plní svou funkci pouze ve vozidlech vybavených systémem ABS"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 177,
+      "otazka": "Častou příčinou těžkých nehod zejména na dálnici je",
+      "moznosti": {
+        "a": "příliš pomalá jízda",
+        "b": "špatný technický stav vozidla",
+        "c": "únava řidiče způsobená nedostatečným odpočinkem a následný mikrospánek"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 178,
+      "otazka": "Schopnost řidiče k řízení vozidla po požití i malého množství alkoholu, např. půl litru piva",
+      "moznosti": {
+        "a": "se snižuje",
+        "b": "není ovlivněna, pokud se alkohol pije zároveň s černou kávou",
+        "c": "není ovlivněna"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 179,
+      "otazka": "Obecně udávaná doba odbourávání alkoholu z krve je po vypití půl litru dvanáctistupňového piva asi",
+      "moznosti": {
+        "a": "1 až 2 hodiny",
+        "b": "2 až 3 hodiny",
+        "c": "0,5 až 1 hodina"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 180,
+      "otazka": "Jako minimální bezpečná vzdálenost za jedoucím vozidlem je považován",
+      "moznosti": {
+        "a": "časový odstup dvě sekundy",
+        "b": "odstup nejméně 20 metrů podle rychlosti vozidel",
+        "c": "časový odstup jedna sekunda"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 181,
+      "otazka": "Při rychlosti 100 km/h je délka brzdné dráhy vozidla oproti brzdné dráze při rychlosti 50 km/h",
+      "moznosti": {
+        "a": "přibližně čtyřikrát delší",
+        "b": "přibližně třikrát delší",
+        "c": "přibližně dvakrát delší"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 182,
+      "otazka": "Čtení z mapy řidičem za jízdy",
+      "moznosti": {
+        "a": "není nebezpečné při jízdě mimo obec",
+        "b": "není nebezpečné při rychlosti jízdy nižší než 50 km/h",
+        "c": "zvyšuje riziko dopravní nehody v důsledku nepozornosti řidiče"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 183,
+      "otazka": "Přilnavost pneumatik k vozovce významně snižuje",
+      "moznosti": {
+        "a": "silný déšť a vysoká vrstva vody na vozovce",
+        "b": "velká hmotnost nákladu na vozidle",
+        "c": "protiblokovací systém brzd (ABS)"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 184,
+      "otazka": "Při jízdě vozidla po krajnici",
+      "moznosti": {
+        "a": "musí být uvedeno v činnost výstražné světelné zařízení vozidla",
+        "b": "není nutno dbát zvýšené opatrnosti, je-li rychlost jízdy maximálně 50 km/h",
+        "c": "je nutno dbát zvýšené opatrnosti, vzhledem k možnosti porušení její nezpevněné části a převrácení vozidla"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 185,
+      "otazka": "Vzduchový vír nebo náraz vzduchu vzniklý při předjíždění",
+      "moznosti": {
+        "a": "je nebezpečný pouze pro předjížděná jednostopá vozidla",
+        "b": "nemá vliv na předjížděná vozidla",
+        "c": "je nebezpečím pro stabilitu předjížděných vozidel, zejména jednostopých"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 186,
+      "otazka": "Na dálnici musíte počítat se silným bočním větrem především",
+      "moznosti": {
+        "a": "na mostech a v otevřeném terénu",
+        "b": "v podjezdech a tunelech",
+        "c": "v lesních úsecích"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 187,
+      "otazka": "Při intenzivním brzdění vozidla bez protiblokovacího systému brzd (ABS) na náledí dochází",
+      "moznosti": {
+        "a": "k maximálnímu brzdnému účinku, při němž vozidlo zastaví s nejkratší brzdnou dráhou",
+        "b": "k zablokování kol zadní nápravy vozidla, při němž vozidlo zůstává řiditelným",
+        "c": "k zablokování kol a vozidlo se stává neřiditelným"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 188,
+      "otazka": "Dává-li řidič vpředu jedoucího vozidla výstražné světelné znamení, řidič vozidla jedoucího za ním",
+      "moznosti": {
+        "a": "zajede co nejblíže k pravému okraji vozovky a zastaví",
+        "b": "sníží rychlost jízdy a také použije světelné výstražné znamení",
+        "c": "pokračuje v jízdě nezměněným způsobem"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 189,
+      "otazka": "Vlivem sil, které působí na náklad při průjezdu zatáčkou",
+      "moznosti": {
+        "a": "získává vozidlo větší stabilitu v důsledku vyšší hmotnosti s naloženým nákladem",
+        "b": "se podmínky jízdy a stabilita vozidla nezmění oproti jízdě na rovném úseku vozovky",
+        "c": "se může nedostatečně upevněný náklad vysypat nebo posunout"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 190,
+      "otazka": "Příčinou vzniku aquaplaningu je",
+      "moznosti": {
+        "a": "prudké zrychlení vozidla na mokré vozovce",
+        "b": "prudké brzdění vozidla na mokré vozovce",
+        "c": "rychlá jízda na vozovce pokryté větším množstvím vody"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 191,
+      "otazka": "Za jízdy v noci se náhle v osvětleném prostoru dálkovými světly objeví lesní zvěř, proto řidič",
+      "moznosti": {
+        "a": "ihned přepne osvětlení vozidla na potkávací světla a sníží rychlost jízdy",
+        "b": "vypne světla vozidla a pokračuje v jízdě sníženou rychlostí",
+        "c": "pokračuje v jízdě s osvětlením dálkovými světly"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 192,
+      "otazka": "Při jízdě v obci se na vozovce před vozidlem náhle objeví kutálející se míč, proto řidič",
+      "moznosti": {
+        "a": "okamžitě sníží rychlost jízdy nebo i zastaví vozidlo, protože za míčem mohou vběhnout děti",
+        "b": "pokračuje v jízdě, protože předpokládá, že děti zůstanou na chodníku než vozidlo odjede",
+        "c": "pokračuje v jízdě nezměněnou rychlostí a podle možnosti se vyhne míči"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 193,
+      "otazka": "Ve výhledu z motorového vozidla je vidět na chodníku skupinu dětí, proto řidič",
+      "moznosti": {
+        "a": "použije výstražné zvukové znamení a popřípadě přejede k levému okraji jízdního pruhu",
+        "b": "s ohledem na možné vběhnutí dětí do vozovky zvýší pozornost a sníží rychlost jízdy",
+        "c": "nemá důvod ke změně způsobu jízdy, protože děti jsou na chodníku"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 194,
+      "otazka": "Autobus zastavuje v zastávce při pravém okraji vozovky. Řidič vozidla jedoucího za ním tento autobus",
+      "moznosti": {
+        "a": "předjede zvýšenou rychlostí dříve než zastaví, aby nemusel zohledňovat vystupující cestující",
+        "b": "předjede vlevo sníženou rychlostí a bere v úvahu možnost zvýšeného pohybu chodců",
+        "c": "nesmí předjet a musí zastavit těsně za ním"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 195,
+      "otazka": "Řidič pomalu jedoucího vozidla zřejmě zapomněl vypnout znamení o změně směru jízdy vlevo, proto řidič za ním jedoucího vozidla",
+      "moznosti": {
+        "a": "jej předjede bez ohledu na znamení o změně směru jízdy",
+        "b": "jej upozorní zvukovým výstražným znamením",
+        "c": "nebude toto vozidlo předjíždět a podle možnosti upozorní jeho řidiče např. světelným výstražným znamením"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 196,
+      "otazka": "Při sebemenším náznaku bočního výkyvu (smyku) přívěsu, řidič okamžitě",
+      "moznosti": {
+        "a": "zabrzdí jízdní soupravu",
+        "b": "zvýší rychlost jízdy",
+        "c": "sníží rychlost jízdy"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 197,
+      "otazka": "Při jízdě za hustého deště za nákladním automobilem dochází k znečištění předního okna vozidla, proto řidič jedoucí za tímto nákladním automobilem",
+      "moznosti": {
+        "a": "zvýší vzdálenost mezi jedoucími vozidly",
+        "b": "pojede co nejblíže za nákladním automobilem v tzv. „aerodynamickém stínu“",
+        "c": "ihned zahájí předjíždění nákladního automobilu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 198,
+      "otazka": "Poučení řidiče k jízdě provádí uživatel (velitel) vozidla",
+      "moznosti": {
+        "a": "na začátku jízdy zpravidla po rozjezdu vozidla",
+        "b": "podle vlastního uvážení během jízdy, přitom dbá na bezpečnost provozu",
+        "c": "před zahájením jízdy, pokud je vozidlo v klidu"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 199,
+      "otazka": "Poučení řidiče k jízdě provádí uživatel (velitel) vozidla",
+      "moznosti": {
+        "a": "kdykoli v průběhu jízdy, přitom dbá na bezpečnost provozu",
+        "b": "zásadně když je technika v klidu",
+        "c": "nejpozději 20 minut před jízdou"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 200,
+      "otazka": "Maximální rychlost jízdy pro plnění úkolu vozidlem ozbrojených sil je uvedena",
+      "moznosti": {
+        "a": "v jízdním dokladu nebo v rozkazu pro přesun",
+        "b": "v technickém průkazu vozidla",
+        "c": "v zákoně o provozu na pozemních komunikacích"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 201,
+      "otazka": "Maximální rychlost jízdy vozidla, stanovená v jízdním dokladu nebo rozkazu pro přesun",
+      "moznosti": {
+        "a": "nesmí být překročena",
+        "b": "nesmí být překročena, kromě jízdy na dálnici nebo silnici pro motorová vozidla",
+        "c": "může být překročena pouze ve výjimečných případech, např. při dojíždění kolony"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 202,
+      "otazka": "Maximální rychlost jízdy pro plnění úkolu vozidlem ozbrojených sil je stanovena",
+      "moznosti": {
+        "a": "výhradně výrobcem a je vyznačena v technickém průkazu vozidla",
+        "b": "v jízdním dokladu vozidla nebo v rozkazu pro přesun",
+        "c": "pouze příslušnými ustanoveními zákona o provozu na pozemních komunikacích"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 203,
+      "otazka": "Pokud je k vytápění vozidla použito nezávislého topení, musí je řidič vypnout",
+      "moznosti": {
+        "a": "před čerpáním pohonných hmot",
+        "b": "již před příjezdem k čerpací stanici pohonných hmot",
+        "c": "nemusí je vypnout při čerpání pohonných hmot"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 204,
+      "otazka": "V prostoru čerpací stanice pohonných hmot je zakázáno",
+      "moznosti": {
+        "a": "seřizovat nebo opravovat motor vozidla",
+        "b": "měřit tlak v pneumatikách a provádět jejich huštění",
+        "c": "doplňovat provozní náplně a olej"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 205,
+      "otazka": "V prostoru čerpací stanice pohonných hmot je zakázáno",
+      "moznosti": {
+        "a": "kouřit a zacházet s otevřeným ohněm",
+        "b": "zdržovat se déle, než je nezbytně nutné",
+        "c": "opravovat elektrická zařízení na vozidle"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 206,
+      "otazka": "Před čerpáním pohonných hmot řidič nemusí",
+      "moznosti": {
+        "a": "provést odpojení elektrické instalace vozidla od akumulátoru",
+        "b": "zastavit motor",
+        "c": "vypnout zapalování"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 207,
+      "otazka": "Před čerpáním pohonných hmot řidič musí",
+      "moznosti": {
+        "a": "vypnout vnější a vnitřní osvětlení vozidla",
+        "b": "zastavit motor a vypnout zapalování",
+        "c": "provést odpojení elektrické instalace vozidla od akumulátoru"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 208,
+      "otazka": "Při přepravě osob ve vozidle ozbrojených sil je zakázáno kouřit",
+      "moznosti": {
+        "a": "pouze přepravovaným osobám",
+        "b": "řidiči a všem přepravovaným osobám",
+        "c": "pouze řidiči"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 209,
+      "otazka": "Ve vozidle ozbrojených sil je řidiči a přepravovaným osobám zakázáno",
+      "moznosti": {
+        "a": "jíst a pít",
+        "b": "kouřit",
+        "c": "poslouchat rádio"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 210,
+      "otazka": "Hrozí-li nebezpečí kontaktu namontované antény nebo obdobného zařízení s trolejí při přejíždění elektrifikovaného železničního přejezdu",
+      "moznosti": {
+        "a": "není nutná jejich demontáž, pokud bude rychlost jízdy nižší než 30 km/h",
+        "b": "je nutná jejich demontáž před přejížděním přejezdu",
+        "c": "se tato zařízení nedemontují, pokud svítí bílé přerušované světlo zabezpečovacího zařízení"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 211,
+      "otazka": "Řidič vozidla ozbrojených sil je ve vojenských objektech a mimo pozemní komunikace povinen zdůraznit začátek couvání zvukovým výstražným znamením",
+      "moznosti": {
+        "a": "vždy",
+        "b": "jen pokud nemá výhled za vozidlo prostřednictvím vnitřního zpětného zrcátka",
+        "c": "jen pokud není prováděno jeho navádění"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 212,
+      "otazka": "Osoba, která provádí navádění vozidla ozbrojených sil, stojí čelem k jeho přední části a nejméně ve vzdálenosti",
+      "moznosti": {
+        "a": "3 m od vozidla",
+        "b": "5 m od vozidla",
+        "c": "podle svého uvážení"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 213,
+      "otazka": "Je-li třeba vystoupit na vozidlo nebo jeho ložnou plochu nebo z nich sestoupit,",
+      "moznosti": {
+        "a": "musí se k tomu použít bezpečné zařízení (např. stupačky, úchytky, žebřík)",
+        "b": "musí být místo výstupu nebo sestupu vždy osvětleno",
+        "c": "musí být nastupující nebo sestupující osoby vybaveny vhodnými rukavicemi"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 214,
+      "otazka": "Bezpečné couvání a otáčení vozidla pomocí způsobilé a náležitě poučené osoby řidič",
+      "moznosti": {
+        "a": "je povinen zajistit vždy, bez ohledu na dopravní situaci",
+        "b": "je povinen zajistit vždy v případech, kdy to vyžaduje bezpečnost prováděného úkonu",
+        "c": "není povinen zajišťovat"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 215,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen po připojení přívěsu, návěsu nebo taženého vozidla",
+      "moznosti": {
+        "a": "označit připojované vozidlo na zadní straně výstražným trojúhelníkem",
+        "b": "zabezpečit při jízdě výhled na připojené vozidlo prostřednictvím přídavných vnějších zpětných zrcátek",
+        "c": "provést kontrolu spojení vozidel a zajištěného závěsného zařízení"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 216,
+      "otazka": "Řidič vozidla ozbrojených sil je povinen před odpojením přívěsu, návěsu nebo taženého vozidla",
+      "moznosti": {
+        "a": "vždy zabezpečit při odpojování regulaci provozu náležitě poučenou osobou",
+        "b": "označit odpojované vozidlo na zadní straně výstražným trojúhelníkem",
+        "c": "zajistit obě vozidla proti samovolnému pohybu"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 217,
+      "otazka": "Ztratí-li řidič při řízení vozidla z dohledu osobu, která provádí jeho navádění je povinen",
+      "moznosti": {
+        "a": "použít při další jízdě zvukové výstražné znamení",
+        "b": "ihned vozidlo zastavit a vyčkat až se tato osoba znovu objeví v jeho dohledu",
+        "c": "pokračovat v jízdě ale se zvýšenou opatrností"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 218,
+      "otazka": "Osoba, která provádí zapojení přívěsu, smí vstoupit mezi připojovaná vozidla pouze tehdy, je-li závěsné zařízení tahače vzdáleno od oka oje přívěsu",
+      "moznosti": {
+        "a": "méně než 0,25 m",
+        "b": "minimálně 1 m",
+        "c": "není určena bezpečná vzdálenost"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 219,
+      "otazka": "Bezpečná vzdálenost osob od vozidel při jejich vyprošťování pomocí tažného lana nebo navijáku je v okruhu",
+      "moznosti": {
+        "a": "vzdálenosti rovnající se polovině délky vyprošťovacího lana",
+        "b": "nejméně 5 m",
+        "c": "nejméně 1,5 násobku délky (odvinutého) vyprošťovacího lana mezi vozidly"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 220,
+      "otazka": "Při odstraňování závady na vozidle ozbrojených sil na pozemní komunikaci je řidič povinen",
+      "moznosti": {
+        "a": "mít řádně oblečenou výstražnou reflexní vestu s vysokou viditelností",
+        "b": "zabezpečit regulaci provozu příslušníkem vojenské pořádkové služby",
+        "c": "zajistit kola vozidla nejméně jedním zakládacím klínem"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 221,
+      "otazka": "Při poruše vozidla ozbrojených sil a vstupování na pozemní komunikaci je řidič povinen",
+      "moznosti": {
+        "a": "uzamknout vozidlo a vyžádat technickou pomoc útvaru",
+        "b": "vyžádat regulaci provozu příslušníkem vojenské pořádkové služby",
+        "c": "mít při odstraňování poruchy řádně oblečenou výstražnou reflexní vestu s vysokou viditelností"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 222,
+      "otazka": "Řidič může otevřít uzávěr nalévacího hrdla chladicí soustavy",
+      "moznosti": {
+        "a": "až po částečném ochlazení motoru a opatrném snížení přetlaku v chladicí soustavě",
+        "b": "kdykoliv bez ohledu na teplotu chladicí kapaliny, tj. i okamžitě po zastavení motoru",
+        "c": "pouze až po vychladnutí motoru na teplotu okolního vzduchu"
+      },
+      "oznacena_odpoved": "a"
+    },
+    {
+      "id": 223,
+      "otazka": "Naplnění palivové nádrže palivem po horní okraj nalévacího hrdla může způsobit při zvýšení teploty",
+      "moznosti": {
+        "a": "samovolné vznícení",
+        "b": "zavzdušňování palivové soustavy",
+        "c": "únik paliva z nádrže"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 224,
+      "otazka": "Při plnění palivových nádrží ze záložní baňky musí řidič",
+      "moznosti": {
+        "a": "přivolat náležitě poučenou osobu",
+        "b": "vypnout motor, používat těsnící nástavec nebo nálevku a dbát zvýšené opatrnosti",
+        "c": "ponechat motor v chodu a dbát zvýšené opatrnosti"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 225,
+      "otazka": "Plechovky od spotřebovaných barev a textilie nasycené ropnými látkami se odkládají",
+      "moznosti": {
+        "a": "do kontejneru s odpadem komunálního charakteru",
+        "b": "do popelnice jako směsný komunální odpad",
+        "c": "do označených sběrných nádob nebo depa pro sběr nebezpečného odpadu"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 226,
+      "otazka": "Při zjištění závady nebo poškození vozidla ohrožující životní prostředí, je vojenský řidič povinen",
+      "moznosti": {
+        "a": "vyhlásit poplach havarijnímu družstvu útvaru",
+        "b": "neprodleně to hlásit nadřízenému a určeným osobám; podle možnosti se podílet na odstranění závad a jejich následků",
+        "c": "neprodleně označit vozidlo výstražným světelným zařízením"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 227,
+      "otazka": "Při unikání závadných látek z provozních náplní vozidla do půdy, řidič",
+      "moznosti": {
+        "a": "zjistí rozsah úniku a je-li malý, nemusí událost hlásit",
+        "b": "se pokusí zastavit únik látek a učiní opatření k jejich nešíření; únik hlásí nadřízenému a určeným osobám",
+        "c": "zakryje místo vsáknutí zeminou"
+      },
+      "oznacena_odpoved": "b"
+    },
+    {
+      "id": 228,
+      "otazka": "Likvidaci úniku ropných produktů do půdy může řidič provést",
+      "moznosti": {
+        "a": "jejich vypálením na místě úniku",
+        "b": "zakrytím zeminou",
+        "c": "jejich okamžitým odsáním nebo vsakem do posypového materiálu"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 229,
+      "otazka": "Vznícené pohonné hmoty je nutno hasit",
+      "moznosti": {
+        "a": "vodním hasicím přístrojem",
+        "b": "prostředkem pro likvidaci unikajících ropných produktů",
+        "c": "pěnovým, práškovým, sněhovým nebo halotronovým hasicím přístrojem"
+      },
+      "oznacena_odpoved": "c"
+    },
+    {
+      "id": 230,
+      "otazka": "Při hašení většího požáru pod kapotou motoru",
+      "moznosti": {
+        "a": "zvedneme kapotu a hasíme intenzivně ohnisko požáru",
+        "b": "opatrně pozvedneme kapotu a vzniklou mezerou hasíme celý motorový prostor",
+        "c": "zvýšíme rychlost vozidla a hasíme požár proudícím vzduchem"
+      },
+      "oznacena_odpoved": "b"
+    }
+    
+  ]
+}
