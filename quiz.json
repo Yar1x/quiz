@@ -1405,7 +1405,9 @@
       "otazka": "Ustanovení o denní a týdenní době řízení vozidla ozbrojených sil jedním řidičem",
       "moznosti": {
         "a": "se musí dodržet",
-        "b": "se musí dodržet jen v pracovní době podle denního řádu útvaru se nemusí dodržet, pokud řidič souhlasí s delší nepřetržitou jízdou"
+        "b": "se musí dodržet jen v pracovní době podle denního řádu útvaru",
+
+"c" : "se nemusí dodržet, pokud řidič souhlasí s delší nepřetržitou jízdou"
       },
       "oznacena_odpoved": "a"
     },
@@ -1957,7 +1959,7 @@
         "b": "zvýší rychlost jízdy",
         "c": "sníží rychlost jízdy"
       },
-      "oznacena_odpoved": "c"
+      "oznacena_odpoved": "b"
     },
     {
       "id": 197,
